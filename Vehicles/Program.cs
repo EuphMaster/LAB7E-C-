@@ -1,32 +1,32 @@
 ﻿using System;
 
-namespace Vehicles
+namespace Unit
 {
     class Program
     {
         static void doWork()
         {
-            Console.WriteLine("Journey by airplane:");
-            Airplane myPlane = new Airplane();
-            myPlane.StartEngine("Contact");
-            myPlane.TakeOff();
-            myPlane.Drive();
-            myPlane.Land();
-            myPlane.StopEngine("Whir");
+            Console.WriteLine("Firing an RPG:");
+            RPG rpg = new RPG();
+            rpg.BeforeFiring("Back blast area clear");
+            rpg.FindTrigger();
+            rpg.Shooting();
+            rpg.PullTrigger();
+            rpg.AfterFiring("This is a big gun");
 
-            Console.WriteLine("\nJourney by car:");
-            Car myCar = new Car();
-            myCar.StartEngine("Brm brm");
-            myCar.Accelerate();
-            myCar.Drive();
-            myCar.Brake();
-            myCar.StopEngine("Phut phut");
+            Console.WriteLine("\nFiring a Handgun:");
+            HandGun handGun = new HandGun();
+            handGun.BeforeFiring("Good sight picture");
+            handGun.SafetyOff();
+            handGun.Shooting();
+            handGun.SafetyOn();
+            handGun.AfterFiring("Wish I had a bigger gun");
 
             Console.WriteLine("\nTesting polymorphism");
-            Vehicle v = myCar;
-            v.Drive();
-            v = myPlane;
-            v.Drive();
+            Weapon v = handGun;
+            v.Shooting();
+            v = rpg;
+            v.Shooting();
         }
 
         static void Main()
